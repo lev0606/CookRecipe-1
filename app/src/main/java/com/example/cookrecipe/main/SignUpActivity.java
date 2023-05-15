@@ -75,7 +75,7 @@ public class SignUpActivity extends AppCompatActivity {
                             data[1] = UserEmail;
                             data[2] = UserName;
                             data[3] = PassWord;
-                            PutData putData = new PutData("http://192.168.0.84/AndroidDB/signup.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.0.14/AndroidDB/signup.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     progressBar.setVisibility(View.GONE);

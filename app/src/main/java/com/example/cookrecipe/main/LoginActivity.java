@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
                             String[] data = new String[2];
                             data[0] = UserID;
                             data[1] = PassWord;
-                            PutData putData = new PutData("http://192.168.0.84/AndroidDB/login.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.0.14/AndroidDB/login.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     progressBar.setVisibility(View.GONE);
