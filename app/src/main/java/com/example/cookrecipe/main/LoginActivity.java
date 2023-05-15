@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cookrecipe.R;
+import com.example.cookrecipe.code.SessionManager;
 import com.google.android.material.textfield.TextInputEditText;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
@@ -25,10 +26,14 @@ public class LoginActivity extends AppCompatActivity {
     TextView textViewSignUp;
     ProgressBar progressBar;
 
+    private SessionManager sessionManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        sessionManager = new SessionManager(getApplicationContext());
 
         textInputEditTextUserID = findViewById(R.id.LoginUserID);
         textInputEditTextPassword = findViewById(R.id.LoginPassWord);
@@ -74,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                                     String result = putData.getResult();
                                     if(result.equals("Login Success")){
                                         Toast.makeText(getApplicationContext(),result, Toast.LENGTH_SHORT).show();
+                                        sessionManager.setLogin(true, UserID);
                                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                         startActivity(intent);
                                         finish();
